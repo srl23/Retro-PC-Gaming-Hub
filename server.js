@@ -8,6 +8,7 @@ const dbupdateobject = {
     useUnifiedTopology: true,
     useFindAndModify: false
 };
+//changes because heroku is refusing to read!
 
 // Connect to Mongo
 mongoose.connect(process.env.DATABASE_URL, dbupdateobject);

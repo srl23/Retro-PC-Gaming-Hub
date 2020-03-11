@@ -22,7 +22,7 @@ db.on('open', () => {
 });
 
 app.get('/', (request, response) => {
-	response.send('potato');
+	response.send('oh my god it works!');
 });
 
 app.listen(process.env.PORT, () => {

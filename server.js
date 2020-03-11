@@ -20,7 +20,7 @@ db.on('open', () => {
     console.log('Connection made!');
 });
 
-app.get('/', (request, response) =? {
+app.get('/', (request, response) => {
 	response.send('potato');
 });
 

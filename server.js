@@ -20,6 +20,10 @@ db.on('open', () => {
     console.log('Connection made!');
 });
 
+app.get('/', (request, response) =? {
+	response.send('potato');
+});
+
 app.listen(process.env.PORT, () => {
 	console.log(`I like french fried potaters. Mhm. (listening on port ${process.env.PORT})`);
 });

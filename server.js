@@ -26,6 +26,7 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 db.on('open', () => {
     console.log('Connection made!');
 });
+//will add in more routes tomorrow
 
 //home route
 app.get('/', (request, response) => {

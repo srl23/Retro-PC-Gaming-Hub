@@ -17,7 +17,9 @@ mongoose.connect(process.env.DATABASE_URL, dbupdateobject);
 const postingsController = require('./controllers/postings.js');
 app.use('/postings', postingsController);
 
-
+//controller presiding over the user and their functions
+const userController = require('./controllers/users.js');
+app.use('/users', userController);
 
 // error and success stuff
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));

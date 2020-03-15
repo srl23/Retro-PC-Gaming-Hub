@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>New Post</h1>
+        <form action="/users" method="POST">
+		<h3>Fill all required values (prefaced with *) to make your post.</h3>
+            *Title: <input type="text" name="title" required="true" /><br/>
+			*Game: <input type="text" name="game" required="true" /><br/>
+			*Contact Info: <input type="text" name="contact" required="true" /><br/>
+			*Message: <input type="text" name="message" required="true" /><br/>
+			Screenshot: <% //this is not functional yet %>
+            <input type="submit" value="Register" />
+        </form>
+    </body>
+</html>

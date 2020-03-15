@@ -7,6 +7,10 @@ router.get('/new', (request, response) => {
 	response.render('postings/new.ejs');
 });
 
+router.get('/', (request, response) => {
+	response.send('this works!');
+});
+
 router.post('/', (request, response) => {
 	response.send('this works! yay!');
 });

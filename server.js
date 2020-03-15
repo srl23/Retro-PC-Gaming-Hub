@@ -14,7 +14,7 @@ const dbupdateobject = {
 mongoose.connect(process.env.DATABASE_URL, dbupdateobject);
 
 //posting controller, called "posting" instead of "post" to not confuse it with POST
-const postingsController = require('./controllers.postings.js');
+const postingsController = require('./controllers/postings.js');
 app.use('/postings', postingsController);
 
 

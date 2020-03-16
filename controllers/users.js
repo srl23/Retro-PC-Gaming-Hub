@@ -91,7 +91,7 @@ router.get('/:id', (request, response) => {
 				user:userFound
 			}
 		)
-	)};
+	});
 });
 
 //the main user area of the site where one can view all accounts

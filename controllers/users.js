@@ -60,24 +60,61 @@ router.get('/seed', (request, response) => {
 	)
 });
 
-//this is for getting edits page
-router.get('/:id/edit', (request, response) => {
-	response.send('this is working!');
+//this are the routes for getting edits page to users to edit their own info
+//this does not include changing username due to actual probems it can cause on forums
+router.put('/:id', (request, response) => {
+	User.findByIdAndUpdate(request.params.id, request.body, {new:true}, (error, updatedModel) => {
+		response.redirect('/index');
+	});
 });
 
-//for the new page
+router.get('/:id/edit', (request, response) => {
+	User.findById(request.params.id, (error, userFound) => {
+		response.render('users/edit.ejs',
+			{
+				user:userFound
+			}
+		)
+	});
+});
+
+//for new sign ups
 router.get('/new', (request, response) => {
-	response.send('sign up now! also this works!');
+	response.render('users/new.ejs');
 });
 
 //for viewing users
 router.get('/:id', (request, response) => {
-	response.send('id service working');
+	User.findById(request.params.id, (error, userFound) => (
+		response.render('users/show.ejs',
+			{
+				user:userFound
+			})
+		)
+	)};
 });
 
 //the main user area of the site where one can view all accounts
+//the user must be signed in for data protection reasons
 router.get('/', (request, response) => {
-	response.send('the area where registered users can be viewed');
+	if(request.session.user) {
+		User.find({}, (error, everyUser) => {
+			response.render('users/index.ejs',
+				{
+					users:everyUser
+					user:request.session.user
+				}
+			)
+		})
+	} else {
+		response.redirect('/');
+	}
+});
+
+router.post('/', (request, response) => {
+	User.create(request.body, (error, userCreated) => {
+		response.redirect('/index');
+	});
 });
 
 module.exports = router;

@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const postingSchema = new mongoose.Schema({ //named posting to not confuse it with POST
-	poster: { type: String, required: true }, //the poster's forum name, required with registration
-	topic: String, //this is your thread topic
+	poster: String, //the poster's forum name, meant to grab poster's name and display it
+	topic: { type: String, required: true }, //this is your thread topic
 	title: { type: String, required: true }, //game title, required so people know what game your are interested in for your listing
 	message: { type: String, required: true }, //this is to filter out potential spambots and unhelpful topics
 	contact: { type: String, required: true }, //to set up games with others one must leave their contact info. it will not be displayed by a search engine or be accessible to unregisterd users

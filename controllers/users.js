@@ -101,7 +101,7 @@ router.get('/', (request, response) => {
 		User.find({}, (error, everyUser) => {
 			response.render('users/index.ejs',
 				{
-					users:everyUser
+					users:everyUser,
 					user:request.session.user
 				}
 			)

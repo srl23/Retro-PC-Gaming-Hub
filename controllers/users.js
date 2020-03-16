@@ -85,11 +85,11 @@ router.get('/new', (request, response) => {
 
 //for viewing users
 router.get('/:id', (request, response) => {
-	User.findById(request.params.id, (error, userFound) => (
+	User.findById(request.params.id, (error, userFound) => {
 		response.render('users/show.ejs',
 			{
 				user:userFound
-			})
+			}
 		)
 	)};
 });

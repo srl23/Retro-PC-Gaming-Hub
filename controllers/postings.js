@@ -65,7 +65,7 @@ router.get('/:id/edit', (request, response) => {
 	})
 });
 
-router.delete('/:id, (request, response) => {
+router.delete('/:id', (request, response) => {
 	Posting.findByIdAndRemove(request.params.id, (error, data) => {
 		response.redirect('/postings');
 	});

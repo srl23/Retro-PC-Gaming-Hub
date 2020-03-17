@@ -3,17 +3,20 @@
     <head>
         <meta charset="utf-8">
         <title>Retro PC Games Hub - New Post</title>
+		<link rel="stylesheet" href="/css/normalize.css"/>
+		<link rel="stylesheet" href="/css/skeleton.css"/>		
     </head>
-    <body>
+    <body style="background: black; color: white; text-align: center">
         <h1>New Post</h1>
-        <form action="/users" method="POST">
+        <form action="/postings" method="POST">
 		<h3>Fill all required values (prefaced with *) to make your post.</h3>
-            *Title: <input type="text" name="title" required="true" /><br/>
-			*Game: <input type="text" name="game" required="true" /><br/>
-			*Contact Info: <input type="text" name="contact" required="true" /><br/>
-			*Message: <input type="text" name="message" required="true" /><br/>
-			Screenshot: <% //this is not functional yet %>
-            <input type="submit" value="Register" />
+			<strong>*Username:</strong> <input type="text" name="poster" required="true"/><br/>
+            <strong>*Topic:</strong> <input type="text" name="topic" required="true"/><br/>
+			<strong>*Game Title:</strong> <input type="text" name="title" required="true" /><br/>
+			<strong>*Contact Info:</strong> <input type="text" name="contact" required="true" /><br/>
+			<strong>*Message:</strong> <input type="text" name="message" required="true" /><br/>            
+			<input type="submit" value="Post" />
         </form>
+		<button style="color: white; background: black; border: solid white" onclick="window.location = '/postings'">GO BACK</button> <br />
     </body>
 </html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Retro PC Games Hub - Edit Post</title>
+		<link rel="stylesheet" href="/css/normalize.css"/>
+		<link rel="stylesheet" href="/css/skeleton.css"/>		
+    </head>
+    <body style="background: black; color: white; text-align: center">
+        <h1>Edit Your Post</h1>
+        <form action="/postings/<%=posting.id%>?_method=PUT" method="POST">
+		<h3>Adjust the values within to your liking and hit the submit button to edit your post.</h3>
+			<strong>*Game Title:</strong> <input type="text" name="title" required="true" value="<%=posting.title%>" /><br/>
+            <strong>*Topic:</strong> <input type="text" name="topic" required="true" value="<%=posting.topic%>"/><br/>
+			<strong>*Contact Info:</strong> <input type="text" name="contact" required="true" value="<%=posting.contact%>" /><br/>
+			<strong>*Message:</strong> <input type="text" name="message" required="true" value="<%=posting.message%>" /><br/>
+            <input type="submit" value="Edit" />
+        </form>
+		<button style="color: white; background: black; border: solid white" onclick="window.location = '/postings'">GO BACK</button> <br />
+    </body>
+</html>

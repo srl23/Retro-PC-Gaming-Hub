@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Retro PC Games Hub</title>
+		<link rel="stylesheet" href="/css/normalize.css"/>
+		<link rel="stylesheet" href="/css/skeleton.css"/>
+    </head>
+    <body style="background: black; color: white; text-align: center">
+        <h1>Viewing Post: </h1><br/>
+		<strong>Topic:</strong><br/> <%=posting.topic%><br/>
+		<strong>Title:</strong><br/> <%=posting.title%><br/>
+		<strong>Poster:</strong><br/> <%=posting.poster%><br/>
+		<strong>Message:</strong><br/> <%=posting.message%><br/>
+		<strong>Contact:</strong> <%=posting.contact%><br/>
+		<form action="/postings/<%=posting.id%>?_method=DELETE" method="POST">
+			<input type="submit" value="DELETE"/>
+		</form>
+		<button style="color: white; background: black; border: solid white" onclick="window.location = '/postings/<%=posting.id%>/edit'">EDIT POST</button> <br />
+		<button style="color: white; background: black; border: solid white" onclick="window.location = '/postings'">GO BACK</button> <br />
+    </body>
+</html>

@@ -4,6 +4,9 @@ const app = express();
 require('dotenv').config();
 const mongoose = require('mongoose');
 const db = mongoose.connection;
+app.use(express.urlencoded({extended:true}));
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
 
 const dbupdateobject = {
     useNewUrlParser: true,

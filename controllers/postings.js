@@ -29,7 +29,7 @@ router.get('/seed', (request, response) => {
 				topic: "Back from the dead for some RoN!",
 				title: "Rise of Nations",
 				message: "Finally back on the internet, and it's great! Only thing that would make coming back to life better would be some Rise of Nations with friends. I get to be Russia though, gotta love that attrition!",
-				contact: "jobs on new iMessenger app" //sorry it does not exist :(
+				contact: "jobs on new iMessenger app" //I dont know how it works so I made this up
 			},
 			{
 				poster: "gaben",
@@ -42,22 +42,28 @@ router.get('/seed', (request, response) => {
 				poster: "ahennig",
 				topic: "Dungeon Siege anyone?",
 				title: "Dungeon Siege",
-				messages: "anybody up for some Dungeon Siege? I haven't played in quite some time it would be awesome to play this again. Thanks for reading!",
+				message: "anybody up for some Dungeon Siege? I haven't played in quite some time it would be awesome to play this again. Thanks for reading!",
 				contact: "amy#3333 on Discord"
 			}
-		]
+		],
+		(error, data) => {
+			if(error) console.log(error);
+			response.redirect('/');
+		}
 	)
 });
 
 router.delete('/:id', (request, response) => {
 	Posting.findByIdAndRemove(request.params.id, (error, data) => {
+		if (error) console.log(error);
 		response.redirect('/postings');
 	});
 });
 
 router.put('/:id', (request, response) => {
-	Posting.findByIdAndUpdate(request.params.id, request.body, {new:true}, (error, updatedModel) => {
-		response.redirect('/postings');
+	Posting.findByIdAndUpdate(request.params.id, request.body, {}, (error, updatedModel) => {
+		if (error) console.log(error)
+		response.redirect(`/postings/${request.params.id}`);
 	});
 });
 
@@ -86,16 +92,19 @@ router.get('/:id', (request, response) => {
 });
 
 router.get('/', (request, response) => {
-	response.render('index.ejs',
-		{
-			postings:allPostings
-		}
-	);
+	Posting.find({}, (error, allPostings) => {
+		response.render('index.ejs',
+			{
+				postings:allPostings
+			}
+		)
+	})
 });
 
 router.post('/', (request, response) => {
 	Posting.create(request.body, (error, postingMade) => {
-		response.redirect('/index');
+		if(error) console.log(error);
+		response.redirect('/postings');
 	});
 });
 

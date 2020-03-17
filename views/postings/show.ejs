@@ -13,6 +13,7 @@
 		<strong>Poster:</strong><br/> <%=posting.poster%><br/>
 		<strong>Message:</strong><br/> <%=posting.message%><br/>
 		<strong>Contact:</strong> <%=posting.contact%><br/>
+		<strong>Screenshot:</strong><br/> <img style="width:600px ; height:600px" src="<%=posting.screenshot%>"></img><br/>
 		<form action="/postings/<%=posting.id%>?_method=DELETE" method="POST">
 			<input type="submit" value="DELETE"/>
 		</form>

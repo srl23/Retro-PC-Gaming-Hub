@@ -86,7 +86,7 @@ router.get('/:id', (request, response) => {
 });
 
 router.get('/', (request, response) => {
-	response.render('postings/index.ejs',
+	response.render('index.ejs',
 		{
 			postings:allPostings
 		}

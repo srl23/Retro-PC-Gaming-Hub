@@ -11,18 +11,20 @@
 "></img>
         <h1>Current Posts</h1>
 		<ul>
-			<li>
-				<%
-					for(let i = postings.length - 1; i >= 0; i--) {
-				%>
-				<div style="display: block; border: 2px solid white; border-radius: 25px">
-					<a style="color: white" href="/postings/<%=postings[i].id%>">
-					<%=postings[i].topic%><br/> <%=postings[i].title%></a>
-				</div>
-				<%
-					}
-				%>
-			</li>
+			<div style="width:450px; height:150px; display: inline-block">
+				<li>
+					<%
+						for(let i = postings.length - 1; i >= 0; i--) {
+					%>
+					<div style="display: block; border: 2px solid white; border-radius: 25px">
+						<a style="color: white" href="/postings/<%=postings[i].id%>">
+						<%=postings[i].topic%><br/> <%=postings[i].title%></a>
+					</div>
+					<%
+						}
+					%>
+				</li>
+			</div>
 		</ul>
 		<button style="color: white; background: black; border: solid white" onclick="window.location = '/postings/new'">NEW POST</button> <br />
     </body>

@@ -49,6 +49,12 @@ router.get('/seed', (request, response) => {
 	)
 });
 
+router.delete('/:id', (request, response) => {
+	Posting.findByIdAndRemove(request.params.id, (error, data) => {
+		response.redirect('/postings');
+	});
+});
+
 router.put('/:id', (request, response) => {
 	Posting.findByIdAndUpdate(request.params.id, request.body, {new:true}, (error, updatedModel) => {
 		response.redirect('/postings');
@@ -63,12 +69,6 @@ router.get('/:id/edit', (request, response) => {
 			}
 		)
 	})
-});
-
-router.delete('/:id', (request, response) => {
-	Posting.findByIdAndRemove(request.params.id, (error, data) => {
-		response.redirect('/postings');
-	});
 });
 
 router.get('/new', (request, response) => {
@@ -86,7 +86,11 @@ router.get('/:id', (request, response) => {
 });
 
 router.get('/', (request, response) => {
-	response.render('postings/index.ejs');
+	response.render('postings/index.ejs',
+		{
+			postings:allPostings
+		}
+	);
 });
 
 router.post('/', (request, response) => {

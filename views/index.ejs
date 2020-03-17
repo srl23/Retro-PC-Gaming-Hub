@@ -2,10 +2,22 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Index of Retro PC Games Hub</title>
+        <title>Retro PC Games Hub - Posts</title>
+		<link rel="stylesheet" href="/css/normalize.css"/>
+		<link rel="stylesheet" href="/css/skeleton.css"/>
     </head>
-    <body>
-        <h1>Welcome, user!</h1>
-		<h3>Here are the current posts:</h3>
+    <body style="background: black">
+        <h1>Current Posts</h1>
+		<ul>
+			<li>
+				<%
+					for(let i = posting.length; i > 0; i--) {
+				%>
+				<div style="display: block; border: 2px solid white; border-radius: 25px"
+					<a style="color: white" href="/postings/<%=postings[i].id%>">
+					<%=postings[i].topic%><br/> <%=postings[i].title%></a>
+				</div>
+			</li>
+		</ul>
     </body>
 </html>
